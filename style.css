@@ -1,0 +1,41 @@
+body{
+background-image:url(img/tree.jpg);
+background-size:100%;
+background-repeat:no-repeat;
+
+margin:0;
+padding:0;
+
+width:100vw;
+height:100vh;
+}
+
+.bloc_choix{
+background-color:rgba(0, 0, 0, 0.8);
+
+background-size:100%;
+width:50vw;
+height:50vh;
+margin-top: 10px;
+margin-left: 10px;
+
+position: fixed;
+bottom: 0px;
+right: 0px;
+}
+
+
+.bloc_team{
+background-color:rgba(112, 51, 19, 0.5);
+
+background-size:100%;
+width: 25vw;
+height: 30vh;
+margin-bottom: 10px;
+margin-right: 10px;
+
+position: fixed;
+top: 1vw;
+left: 1vw;
+}
+
