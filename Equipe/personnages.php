@@ -22,10 +22,10 @@ class Combattant extends Classe
 	{
 		$this->setType("Combattant");
 		
-		$this->hp = 100;
-		$this->magie = 0;
-		$this->force = 95;
-		$this->qi = 60;
+		$this->setHp(100);
+		$this->setMagie(0);
+		$this->setForce(95);
+		$this->setQi(60);
 	}
 }
 
@@ -36,10 +36,10 @@ class Familier extends Classe
 	{
 		$this->setType("Familier");
 		
-		$this->hp = 100;
-		$this->magie = 60;
-		$this->force = 43;
-		$this->qi = 70;
+		$this->setHp(100);
+		$this->setMagie(60);
+		$this->setForce(43);
+		$this->setQi(70);
 	}
 }
 
@@ -50,10 +50,10 @@ class Elf extends Classe
 	{
 		$this->setType("Elf");
 		
-		$this->hp = 100;
-		$this->magie = 75;
-		$this->force = 20;
-		$this->qi = 75;
+		$this->setHp(100);
+		$this->setMagie(75);
+		$this->setForce(20);
+		$this->setQi(75);
 	}
 }
 
