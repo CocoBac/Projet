@@ -46,7 +46,6 @@ class Etape
 	function showChoix($numero) // Donne le nom du choix numéro X de l'étape
 	{
 		return $this->choix[$numero]->getNom();
-
 	}
 
 	function deleteChoix($nChoix)

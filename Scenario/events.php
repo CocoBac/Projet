@@ -5,6 +5,7 @@ require_once(__DIR__.'/evenement.php');
 //Texte
 class eventTexte extends Evenement
 {
+
 	private $texte;
 	
 	function setTexte($texte)
@@ -17,7 +18,7 @@ class eventTexte extends Evenement
 		return $this->texte;
 	}
 
-	function exe()
+	function exe($equipe)
 	{
 		echo $this->texte;
 	}
@@ -25,10 +26,11 @@ class eventTexte extends Evenement
 }
 
 //Degats
-class eventDamage extends Evenement
+class eventDamage extends Evenement // Virtuelle
 {
 	private $damage;
 	private $cible;
+	private $calcul;
 
 	function getCible()
 	{
@@ -43,13 +45,26 @@ class eventDamage extends Evenement
 	function setDamage($damage)
 	{
 		$this->damage=$damage;
+		if (func_num_args()==2) { $this->calcul=func_get_arg(1); }
+		else {$this->calcul="0";}
 	}
 
-	function getdamage()
+	function getDamage()
 	{
 		return $this->damage;
 	}
 
+	function exe($equipe)
+	{
+		switch ($this->calcul) {
+			case "+":  $this->damage=($this->getCurrent($equipe)+$this->damage); break;
+			case "-":  $this->damage=($this->getCurrent($equipe)-$this->damage); break;
+			case "/":  $this->damage=($this->getCurrent($equipe)/$this->damage); break;
+			case "*":  $this->damage=($this->getCurrent($equipe)*$this->damage); break;
+			default : break;
+		}
+		$this->exec($equipe);
+	} // Virtuelle
 }
 
 //Hp
@@ -63,7 +78,7 @@ class eventDamageHp extends EventDamage
 		return $equipe->getTabJoueurs()[$this->getCible()]->getPerso()->getHp();	
 	}
 	
-	function exe($equipe)
+	function exec($equipe)
 	{
 		$equipe->getTabJoueurs()[$this->getCible()]->getPerso()->setHp($this->getDamage());
 	}
@@ -81,7 +96,7 @@ class eventDamageMagie extends EventDamage
 		return $equipe->getTabJoueurs()[$this->getCible()]->getPerso()->getMagie();	
 	}
 	
-	function exe($equipe)
+	function exec($equipe)
 	{
 		$equipe->getTabJoueurs()[$this->getCible()]->getPerso()->setMagie($this->getDamage());
 	}
@@ -99,7 +114,7 @@ class eventDamageForce extends EventDamage
 		return $equipe->getTabJoueurs()[$this->getCible()]->getPerso()->getForce();	
 	}
 	
-	function exe($equipe)
+	function exec($equipe)
 	{
 		$equipe->getTabJoueurs()[$this->getCible()]->getPerso()->setForce($this->getDamage());
 	}
@@ -117,7 +132,7 @@ class eventDamageQi extends EventDamage
 		return $equipe->getTabJoueurs()[$this->getCible()]->getPerso()->getQi();	
 	}
 	
-	function exe($equipe)
+	function exec($equipe)
 	{
 		$equipe->getTabJoueurs()[$this->getCible()]->getPerso()->setQi($this->getDamage());
 	}
