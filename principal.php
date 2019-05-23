@@ -15,7 +15,8 @@ require_once(__DIR__.'/Equipe/affichage.php');
 	
 	<body>
 	<br>
-	<?php
+	
+	<?php//TESTTTTTTTTT
 	$s = new Scenario;
 	$e = new Equipe;
 	$e->addJoueur("J1");
