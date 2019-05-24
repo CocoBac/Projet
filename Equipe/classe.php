@@ -36,7 +36,7 @@ class Classe
 		return $this->magie;
 	}
 	
-	function setMagie()
+	function setMagie($magie)
 	{
 		$this->magie=($magie)
 	}
@@ -46,7 +46,7 @@ class Classe
 		return $this->force;
 	}
 	
-	function setForce()
+	function setForce($force)
 	{
 		$this->force=($force);
 	}
@@ -56,7 +56,7 @@ class Classe
 		return $this->qi;
 	}
 	
-	function setQi()
+	function setQi($qi)
 	{
 		$this->qi=($qi);
 	}
